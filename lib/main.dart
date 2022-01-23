@@ -63,7 +63,7 @@ class Keyboard extends StatelessWidget {
 }
 
 //ボタン部分
-class Bottun extends StatelessWidget {
+class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text('Botton');
