@@ -34,6 +34,14 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(_keyLabel);
+    return TextButton(
+      onPressed: () {},
+      child: Center(
+        child: Text(
+          _keyLabel,
+          style: TextStyle(fontSize: 46.0),
+        ),
+      ),
+    );
   }
 }
