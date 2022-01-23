@@ -17,7 +17,44 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Display(),
+            Keyboard(),
+          ],
+        ),
       ),
     );
+  }
+}
+
+//ディスプレイ部分
+class Display extends StatefulWidget {
+  _DisplayState createState() => _DisplayState();
+}
+
+class _DisplayState extends State<Display> {
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Display',
+    );
+  }
+}
+
+//キーボード部分
+class Keyboard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text('Keyboard');
+  }
+}
+
+//ボタン部分
+class Bottun extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text('Botton');
   }
 }
