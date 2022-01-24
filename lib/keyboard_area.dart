@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //キーボード部分
 class KeyboardArea extends StatelessWidget {
@@ -41,7 +42,7 @@ class TouchButton extends StatelessWidget {
       child: Center(
         child: Text(
           _keyLabel,
-          style: const TextStyle(fontSize: 46.0),
+          style: TextStyle(fontSize: 46.0.sp),
         ),
       ),
     );
