@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'display_area.dart';
 import 'keyboard_area.dart';
@@ -13,18 +14,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: TextData.appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(TextData.appTitle),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            DisplayArea(),
-            KeyboardArea(),
-          ],
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: () => MaterialApp(
+        title: TextData.appTitle,
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text(TextData.appTitle),
+          ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              DisplayArea(),
+              KeyboardArea(),
+            ],
+          ),
         ),
       ),
     );
