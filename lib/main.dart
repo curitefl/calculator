@@ -9,11 +9,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  static const String appTitle = '電卓アプリ';
 
   @override
   Widget build(BuildContext context) {
-    var appTitle = '電卓アプリ';
-
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
