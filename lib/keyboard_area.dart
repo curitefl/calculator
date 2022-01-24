@@ -18,7 +18,7 @@ class KeyboardArea extends StatelessWidget {
         crossAxisCount: 4,
         children: keyboardLabels.map((keyLabel) {
           return GridTile(
-            child: Button(keyLabel),
+            child: TouchButton(keyLabel),
           );
         }).toList(),
       ),
@@ -27,10 +27,10 @@ class KeyboardArea extends StatelessWidget {
 }
 
 //ボタン部分
-class Button extends StatelessWidget {
+class TouchButton extends StatelessWidget {
   var _keyLabel;
 
-  Button(this._keyLabel);
+  TouchButton(this._keyLabel);
 
   @override
   Widget build(BuildContext context) {
