@@ -17,13 +17,16 @@ class KeyboardArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
-      child: GridView.count(
-        crossAxisCount: 4,
-        children: _keyboardLabels.map((keyLabel) {
-          return GridTile(
-            child: TouchButton(keyLabel),
-          );
-        }).toList(),
+      child: AspectRatio(
+        aspectRatio: 1.0,
+        child: GridView.count(
+          crossAxisCount: 4,
+          children: _keyboardLabels.map((keyLabel) {
+            return GridTile(
+              child: TouchButton(keyLabel),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
