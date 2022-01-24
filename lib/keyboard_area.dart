@@ -1,9 +1,11 @@
-//キーボード部分
 import 'package:flutter/material.dart';
 
+//キーボード部分
 class KeyboardArea extends StatelessWidget {
+  const KeyboardArea({Key? key}) : super(key: key);
+
   // @formatter:off
-  List<String> keyboardLabels = [
+  static const List<String> _keyboardLabels = [
     '7', '8', '9', '÷',
     '4', '5', '6', '×',
     '1', '2', '3', '-',
@@ -16,7 +18,7 @@ class KeyboardArea extends StatelessWidget {
       flex: 2,
       child: GridView.count(
         crossAxisCount: 4,
-        children: keyboardLabels.map((keyLabel) {
+        children: _keyboardLabels.map((keyLabel) {
           return GridTile(
             child: TouchButton(keyLabel),
           );
@@ -28,9 +30,9 @@ class KeyboardArea extends StatelessWidget {
 
 //ボタン部分
 class TouchButton extends StatelessWidget {
-  var _keyLabel;
+  final String _keyLabel;
 
-  TouchButton(this._keyLabel);
+  const TouchButton(this._keyLabel, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class TouchButton extends StatelessWidget {
       child: Center(
         child: Text(
           _keyLabel,
-          style: TextStyle(fontSize: 46.0),
+          style: const TextStyle(fontSize: 46.0),
         ),
       ),
     );
