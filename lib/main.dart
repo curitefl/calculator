@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'display_area.dart';
 import 'keyboard_area.dart';
+import 'text_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,19 +10,18 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  static const String appTitle = '電卓アプリ';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: appTitle,
+      title: TextData.appTitle,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(appTitle),
+          title: const Text(TextData.appTitle),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          children: const [
             DisplayArea(),
             KeyboardArea(),
           ],

@@ -1,23 +1,26 @@
-//ディスプレイ部分
 import 'package:flutter/material.dart';
 
+import 'text_data.dart';
+
+//ディスプレイ部分
 class DisplayArea extends StatefulWidget {
+  const DisplayArea({Key? key}) : super(key: key);
+
+  @override
   _DisplayAreaState createState() => _DisplayAreaState();
 }
 
 class _DisplayAreaState extends State<DisplayArea> {
-  String _expression = '1+1';
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 1,
+      flex: TextData.displayAreaFlex,
       child: Container(
         alignment: Alignment.centerRight,
-        child: Text(
-          _expression,
+        child: const Text(
+          TextData.displayExpression,
           style: TextStyle(
-            fontSize: 64.0,
+            fontSize: TextData.displayExpressionFontSize,
           ),
         ),
       ),
