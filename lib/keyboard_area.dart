@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class KeyboardArea extends StatelessWidget {
   // @formatter:off
-  var keyboardLabels = [
+  List<String> keyboardLabels = [
     '7', '8', '9', '÷',
     '4', '5', '6', '×',
     '1', '2', '3', '-',
