@@ -14,13 +14,13 @@ class _DisplayAreaState extends State<DisplayArea> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: TextData.displayAreaFlex,
+      flex: 1,
       child: Container(
         alignment: Alignment.centerRight,
-        child: const Text(
-          TextData.displayExpression,
-          style: TextStyle(
-            fontSize: TextData.displayExpressionFontSize,
+        child: Text(
+          _displayExpression,
+          style: const TextStyle(
+            fontSize: 64.0,
           ),
         ),
       ),
