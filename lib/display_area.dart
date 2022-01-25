@@ -17,9 +17,11 @@ class DisplayController extends GetxController {
 
 //ディスプレイ部分
 class DisplayArea extends StatelessWidget {
-  DisplayArea({Key? key}) : super(key: key);
+  final DisplayController _displayController;
 
-  final DisplayController displayController = Get.put(DisplayController());
+  DisplayArea({Key? key})
+      : _displayController = Get.put(DisplayController()),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class DisplayArea extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Obx(
             () => Text(
-              displayController.displayExpression.value,
+              _displayController.displayExpression.value,
               style: TextStyle(
                 fontSize: 64.0.sp,
               ),
