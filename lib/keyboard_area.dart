@@ -53,7 +53,10 @@ class TouchButton extends StatelessWidget {
       child: Center(
         child: Text(
           _keyLabel,
-          style: TextStyle(fontSize: 46.0.sp),
+          style: TextStyle(
+            fontSize: 46.0.sp,
+            color: Colors.black54,
+          ),
         ),
       ),
     );
