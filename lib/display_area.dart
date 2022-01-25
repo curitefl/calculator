@@ -4,6 +4,15 @@ import 'package:get/get.dart';
 
 class DisplayController extends GetxController {
   final Rx<String> displayExpression = '1+1'.obs;
+
+  // ディスプレイの再描画処理
+  void updateDisplay(String letter) {
+    if (letter == '=' || letter == 'C') {
+      Get.find<DisplayController>().displayExpression.value = '';
+    } else {
+      Get.find<DisplayController>().displayExpression.value += letter;
+    }
+  }
 }
 
 //ディスプレイ部分
@@ -11,15 +20,6 @@ class DisplayArea extends StatelessWidget {
   DisplayArea({Key? key}) : super(key: key);
 
   final DisplayController displayController = Get.put(DisplayController());
-
-  // ディスプレイの再描画処理
-  static void updateDisplay(String letter) {
-    if (letter == '=' || letter == 'C') {
-      Get.find<DisplayController>().displayExpression.value = '';
-    } else {
-      Get.find<DisplayController>().displayExpression.value += letter;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
