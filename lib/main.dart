@@ -7,6 +7,7 @@ import 'keyboard_area.dart';
 import 'text_data.dart';
 
 void main() {
+  Get.put(DisplayController());
   runApp(const MyApp());
 }
 

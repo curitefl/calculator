@@ -20,7 +20,7 @@ class DisplayArea extends StatelessWidget {
   final DisplayController _displayController;
 
   DisplayArea({Key? key})
-      : _displayController = Get.put(DisplayController()),
+      : _displayController = Get.find<DisplayController>(),
         super(key: key);
 
   @override

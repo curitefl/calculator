@@ -41,7 +41,7 @@ class TouchButton extends StatelessWidget {
   final DisplayController _displayController;
 
   TouchButton(this._keyLabel, {Key? key})
-      : _displayController = Get.put(DisplayController()),
+      : _displayController = Get.find<DisplayController>(),
         super(key: key);
 
   @override
