@@ -13,11 +13,11 @@ class DisplayArea extends StatelessWidget {
   final DisplayController displayController = Get.put(DisplayController());
 
   // ディスプレイの再描画処理
-  _UpdateDisplay(String letter) {
+  static void updateDisplay(String letter) {
     if (letter == '=' || letter == 'C') {
-      displayController.displayExpression.value = '';
+      Get.find<DisplayController>().displayExpression.value = '';
     } else {
-      displayController.displayExpression.value += letter;
+      Get.find<DisplayController>().displayExpression.value += letter;
     }
   }
 
@@ -29,7 +29,7 @@ class DisplayArea extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Obx(
             () => Text(
-              displayController.displayExpression.value,
+              Get.find<DisplayController>().displayExpression.value,
               style: TextStyle(
                 fontSize: 64.0.sp,
               ),

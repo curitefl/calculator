@@ -1,7 +1,6 @@
 import 'package:calculator/display_area.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 //キーボード部分
 class KeyboardArea extends StatelessWidget {
@@ -37,16 +36,15 @@ class KeyboardArea extends StatelessWidget {
 
 //ボタン部分
 class TouchButton extends StatelessWidget {
-  final String _keyLabel;
-
   const TouchButton(this._keyLabel, {Key? key}) : super(key: key);
+
+  final String _keyLabel;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        final DisplayController displayController = Get.find();
-        displayController.displayExpression.value = '2+2';
+        DisplayArea.updateDisplay(_keyLabel);
       },
       child: Center(
         child: Text(
