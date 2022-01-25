@@ -20,7 +20,7 @@ class KeyboardArea extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 1.0,
         child: GridView.count(
-          physics: const ScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 4,
           children: _keyboardLabels.map((keyLabel) {
             return GridTile(
