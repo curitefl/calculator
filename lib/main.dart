@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
             title: const Text(TextData.appTitle),
-            titleTextStyle: TextStyle(fontSize: 20.sp),
+            titleTextStyle: TextStyle(fontSize: 20.0.sp),
             centerTitle: false,
           ),
           body: Column(
