@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //ディスプレイ部分
 class DisplayArea extends StatefulWidget {
@@ -19,8 +20,8 @@ class _DisplayAreaState extends State<DisplayArea> {
         alignment: Alignment.centerRight,
         child: Text(
           _displayExpression,
-          style: const TextStyle(
-            fontSize: 64.0,
+          style: TextStyle(
+            fontSize: 64.0.sp,
           ),
         ),
       ),

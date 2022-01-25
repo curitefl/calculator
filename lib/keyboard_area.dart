@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //キーボード部分
 class KeyboardArea extends StatelessWidget {
@@ -16,13 +17,17 @@ class KeyboardArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 2,
-      child: GridView.count(
-        crossAxisCount: 4,
-        children: _keyboardLabels.map((keyLabel) {
-          return GridTile(
-            child: TouchButton(keyLabel),
-          );
-        }).toList(),
+      child: AspectRatio(
+        aspectRatio: 1.0,
+        child: GridView.count(
+          physics: const NeverScrollableScrollPhysics(),
+          crossAxisCount: 4,
+          children: _keyboardLabels.map((keyLabel) {
+            return GridTile(
+              child: TouchButton(keyLabel),
+            );
+          }).toList(),
+        ),
       ),
     );
   }
@@ -41,7 +46,7 @@ class TouchButton extends StatelessWidget {
       child: Center(
         child: Text(
           _keyLabel,
-          style: const TextStyle(fontSize: 46.0),
+          style: TextStyle(fontSize: 46.0.sp),
         ),
       ),
     );
