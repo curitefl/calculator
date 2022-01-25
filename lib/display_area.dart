@@ -11,15 +11,15 @@ class DisplayArea extends StatefulWidget {
 }
 
 class _DisplayAreaState extends State<DisplayArea> {
-  String _displayExpression = '1+1';
+  final Rx<String> _displayExpression = '1+1'.obs;
 
   // ディスプレイの再描画処理
   _UpdateDisplay(String letter) {
     setState(() {
       if (letter == '=' || letter == 'C') {
-        _displayExpression = '';
+        _displayExpression.value = '';
       } else {
-        _displayExpression += letter;
+        _displayExpression.value += letter;
       }
     });
   }
@@ -31,7 +31,7 @@ class _DisplayAreaState extends State<DisplayArea> {
       child: Container(
         alignment: Alignment.centerRight,
         child: Text(
-          _displayExpression,
+          _displayExpression.value,
           style: TextStyle(
             fontSize: 64.0.sp,
           ),
