@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import 'display_area.dart';
 import 'keyboard_area.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360.0, 690.0),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: () => MaterialApp(
+      builder: () => GetMaterialApp(
         title: TextData.appTitle,
         home: Scaffold(
           appBar: AppBar(
