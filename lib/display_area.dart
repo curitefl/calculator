@@ -10,7 +10,18 @@ class DisplayArea extends StatefulWidget {
 }
 
 class _DisplayAreaState extends State<DisplayArea> {
-  final String _displayExpression = '1+1';
+  String _displayExpression = '1+1';
+
+  // ディスプレイの再描画処理
+  _UpdateDisplay(String letter) {
+    setState(() {
+      if (letter == '=' || letter == 'C') {
+        _displayExpression = '';
+      } else {
+        _displayExpression += letter;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
