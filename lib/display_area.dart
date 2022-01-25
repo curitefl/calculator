@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class DisplayController extends GetxController {
-  final Rx<String> _displayExpression = '1+1'.obs;
+  final Rx<String> displayExpression = '1+1'.obs;
 }
 
 //ディスプレイ部分
@@ -15,9 +15,9 @@ class DisplayArea extends StatelessWidget {
   // ディスプレイの再描画処理
   _UpdateDisplay(String letter) {
     if (letter == '=' || letter == 'C') {
-      displayController._displayExpression.value = '';
+      displayController.displayExpression.value = '';
     } else {
-      displayController._displayExpression.value += letter;
+      displayController.displayExpression.value += letter;
     }
   }
 
@@ -29,7 +29,7 @@ class DisplayArea extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Obx(
             () => Text(
-              displayController._displayExpression.value,
+              displayController.displayExpression.value,
               style: TextStyle(
                 fontSize: 64.0.sp,
               ),
