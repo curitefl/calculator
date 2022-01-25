@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
+            children: [
               DisplayArea(),
-              KeyboardArea(),
+              const KeyboardArea(),
             ],
           ),
         ),

@@ -7,25 +7,18 @@ class DisplayController extends GetxController {
 }
 
 //ディスプレイ部分
-class DisplayArea extends StatefulWidget {
-  const DisplayArea({Key? key}) : super(key: key);
+class DisplayArea extends StatelessWidget {
+  DisplayArea({Key? key}) : super(key: key);
 
-  @override
-  _DisplayAreaState createState() => _DisplayAreaState();
-}
-
-class _DisplayAreaState extends State<DisplayArea> {
   final DisplayController displayController = Get.put(DisplayController());
 
   // ディスプレイの再描画処理
   _UpdateDisplay(String letter) {
-    setState(() {
-      if (letter == '=' || letter == 'C') {
-        displayController._displayExpression.value = '';
-      } else {
-        displayController._displayExpression.value += letter;
-      }
-    });
+    if (letter == '=' || letter == 'C') {
+      displayController._displayExpression.value = '';
+    } else {
+      displayController._displayExpression.value += letter;
+    }
   }
 
   @override
@@ -33,8 +26,8 @@ class _DisplayAreaState extends State<DisplayArea> {
     return Expanded(
       flex: 1,
       child: Container(
-        alignment: Alignment.centerRight,
-        child: Obx(
+          alignment: Alignment.centerRight,
+          child: Obx(
             () => Text(
               displayController._displayExpression.value,
               style: TextStyle(
