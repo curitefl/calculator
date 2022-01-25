@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
             title: const Text(TextData.appTitle),
+            titleTextStyle: TextStyle(fontSize: 20.sp),
+            centerTitle: false,
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
