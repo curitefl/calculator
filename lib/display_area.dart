@@ -34,13 +34,14 @@ class _DisplayAreaState extends State<DisplayArea> {
       flex: 1,
       child: Container(
         alignment: Alignment.centerRight,
-        child: Text(
-          displayController._displayExpression.value,
-          style: TextStyle(
-            fontSize: 64.0.sp,
-          ),
-        ),
-      ),
+        child: Obx(
+            () => Text(
+              displayController._displayExpression.value,
+              style: TextStyle(
+                fontSize: 64.0.sp,
+              ),
+            ),
+          )),
     );
   }
 }
