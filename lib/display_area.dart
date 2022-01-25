@@ -8,9 +8,9 @@ class DisplayController extends GetxController {
   // ディスプレイの再描画処理
   void updateDisplay(String letter) {
     if (letter == '=' || letter == 'C') {
-      Get.find<DisplayController>().displayExpression.value = '';
+      displayExpression.value = '';
     } else {
-      Get.find<DisplayController>().displayExpression.value += letter;
+      displayExpression.value += letter;
     }
   }
 }
@@ -29,7 +29,7 @@ class DisplayArea extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: Obx(
             () => Text(
-              Get.find<DisplayController>().displayExpression.value,
+              displayController.displayExpression.value,
               style: TextStyle(
                 fontSize: 64.0.sp,
               ),

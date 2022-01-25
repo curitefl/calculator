@@ -37,15 +37,16 @@ class KeyboardArea extends StatelessWidget {
 
 //ボタン部分
 class TouchButton extends StatelessWidget {
-  const TouchButton(this._keyLabel, {Key? key}) : super(key: key);
+  TouchButton(this._keyLabel, {Key? key}) : super(key: key);
 
   final String _keyLabel;
+  final DisplayController displayController = Get.find<DisplayController>();
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Get.find<DisplayController>().updateDisplay(_keyLabel);
+        displayController.updateDisplay(_keyLabel);
       },
       child: Center(
         child: Text(
