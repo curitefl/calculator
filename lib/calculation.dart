@@ -4,6 +4,7 @@ class Calculation {
   static final List<double> _numberList = [];
   static final List<String> _operatorList = [];
   static String _numberBuffer = '';
+  static double _result = 0.0;
 
   // 四則演算子と数字を振り分ける処理
   static void getKey(String letter) {
@@ -31,8 +32,32 @@ class Calculation {
 
   // 計算処理
   static String execute() {
-    int result = 0;
-    // TODO
-    return result.toString();
+    _numberList.add(double.parse(_numberBuffer));
+
+    if (_numberList.isEmpty) {
+      return '0';
+    }
+
+    _result = _numberList[0];
+    for (int i = 0; i < _operatorList.length; i++) {
+      if (_operatorList[i] == '+') {
+        _result += _numberList[i + 1];
+      } else if (_operatorList[i] == '-') {
+        _result -= _numberList[i + 1];
+      } else if (_operatorList[i] == '×') {
+        _result *= _numberList[i + 1];
+      } else if (_operatorList[i] == '÷' && _numberList[i + 1] != 0) {
+        _result /= _numberList[i + 1];
+      } else {
+        return 'e';
+      }
+    }
+
+    _numberList.clear();
+    _operatorList.clear();
+    _numberBuffer = '';
+
+    var resultStr = _result.toString().split('.');
+    return resultStr[1] == '0' ? resultStr[0] : _result.toString();
   }
 }
