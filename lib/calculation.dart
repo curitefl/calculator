@@ -42,13 +42,21 @@ class Calculation {
 
     _result = _numberList[0];
     for (int i = 0; i < _operatorList.length; i++) {
-      if (_operatorList[i] == '+') {
+      // +キーの場合
+      if (_operatorList[i] == _checkOperator[0]) {
         _result += _numberList[i + 1];
-      } else if (_operatorList[i] == '-') {
+      }
+      // -キーの場合
+      else if (_operatorList[i] == _checkOperator[1]) {
         _result -= _numberList[i + 1];
-      } else if (_operatorList[i] == '×') {
+      }
+      // ×キーの場合
+      else if (_operatorList[i] == _checkOperator[2]) {
         _result *= _numberList[i + 1];
-      } else if (_operatorList[i] == '÷' && _numberList[i + 1] != 0) {
+      }
+      // ÷キーの場合
+      else if (_operatorList[i] == _checkOperator[3] &&
+          _numberList[i + 1] != 0) {
         _result /= _numberList[i + 1];
       }
       // 四則演算子以外の場合
