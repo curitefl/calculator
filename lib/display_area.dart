@@ -7,19 +7,26 @@ import 'calculation.dart';
 import 'text_data.dart';
 
 class DisplayController extends GetxController {
-  final Rx<String> displayExpression = ''.obs;
+  final Rx<String> displayExpression = TextData.empty.obs;
 
   // ディスプレイの再描画処理
   void updateDisplay(String letter) {
-    if (letter == TextData.clear) {
-      displayExpression.value = '';
-    } else if (letter == TextData.equal) {
-      displayExpression.value = '';
+    // Cキーの場合
+    if (letter == TextData.clearKey) {
+      displayExpression.value = TextData.empty;
+    }
+    // =キーの場合
+    else if (letter == TextData.equalKey) {
+      displayExpression.value = TextData.empty;
       var ans = Calculation.execute();
       displayExpression.value = ans;
-    } else if (letter == 'e') {
-      displayExpression.value = 'Error';
-    } else {
+    }
+    // エラーの場合
+    else if (letter == TextData.error) {
+      displayExpression.value = TextData.error;
+    }
+    // 数字、四則演算子の場合
+    else {
       displayExpression.value += letter;
     }
   }
