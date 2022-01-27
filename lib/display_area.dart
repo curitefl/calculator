@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import 'calculation.dart';
 import 'text_data.dart';
 
 class DisplayController extends GetxController {
-  final Rx<String> displayExpression = '1+1'.obs;
+  final Rx<String> displayExpression = ''.obs;
 
   // ディスプレイの再描画処理
   void updateDisplay(String letter) {
-    if (letter == TextData.equal || letter == TextData.clear) {
+    if (letter == TextData.clear) {
       displayExpression.value = '';
+    } else if (letter == TextData.equal) {
+      displayExpression.value = '';
+      var ans = Calculation.execute();
+      displayExpression.value = ans;
+    } else if (letter == 'e') {
+      displayExpression.value = 'Error';
     } else {
       displayExpression.value += letter;
     }
@@ -32,7 +39,7 @@ class DisplayArea extends StatelessWidget {
       child: Container(
           alignment: Alignment.centerRight,
           child: Obx(
-            () => Text(
+                () => Text(
               _displayController.displayExpression.value,
               style: TextStyle(
                 fontSize: 64.0.sp,
