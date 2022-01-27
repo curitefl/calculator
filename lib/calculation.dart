@@ -1,17 +1,29 @@
 import 'text_data.dart';
 
-const List<String> _checkOperator = ['+', '-', '×', '÷'];
-
 class Calculation {
+  static const List<String> checkOperator = ['+', '-', '×', '÷'];
+  static const List<String> numberKey = [
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9'
+  ];
   static final List<double> _numberList = [];
   static final List<String> _operatorList = [];
   static String _numberBuffer = TextData.empty;
+  static String equalFlag = TextData.empty;
   static double _result = 0.0;
 
   // 四則演算子と数字を振り分ける処理
   static void getKey(String letter) {
     // 四則演算子の場合
-    if (_checkOperator.contains(letter)) {
+    if (checkOperator.contains(letter)) {
       _operatorList.add(letter);
       _numberList.add(double.parse(_numberBuffer));
       _numberBuffer = TextData.empty;
@@ -24,7 +36,9 @@ class Calculation {
     }
     // =キーの場合
     else if (letter == TextData.equalKey) {
-      return;
+      // if (Calculation.equalFlag == TextData.equalKey) {
+      _numberBuffer = TextData.empty;
+      // }
     }
     // 数字の場合
     else {
@@ -35,6 +49,7 @@ class Calculation {
   // 計算処理
   static String execute() {
     _numberList.add(double.parse(_numberBuffer));
+    // equalFlag = TextData.equalKey;
 
     if (_numberList.isEmpty) {
       return TextData.zero;
@@ -43,19 +58,19 @@ class Calculation {
     _result = _numberList[0];
     for (int i = 0; i < _operatorList.length; i++) {
       // +キーの場合
-      if (_operatorList[i] == _checkOperator[0]) {
+      if (_operatorList[i] == checkOperator[0]) {
         _result += _numberList[i + 1];
       }
       // -キーの場合
-      else if (_operatorList[i] == _checkOperator[1]) {
+      else if (_operatorList[i] == checkOperator[1]) {
         _result -= _numberList[i + 1];
       }
       // ×キーの場合
-      else if (_operatorList[i] == _checkOperator[2]) {
+      else if (_operatorList[i] == checkOperator[2]) {
         _result *= _numberList[i + 1];
       }
       // ÷キーの場合
-      else if (_operatorList[i] == _checkOperator[3] &&
+      else if (_operatorList[i] == checkOperator[3] &&
           _numberList[i + 1] != 0) {
         _result /= _numberList[i + 1];
       }

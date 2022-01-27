@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import 'calculation.dart';
+
 //キーボード部分
 class KeyboardArea extends StatelessWidget {
   const KeyboardArea({Key? key}) : super(key: key);
@@ -49,6 +51,7 @@ class TouchButton extends StatelessWidget {
     return TextButton(
       onPressed: () {
         _displayController.updateDisplay(_keyLabel);
+        Calculation.getKey(_keyLabel);
       },
       child: Center(
         child: Text(
