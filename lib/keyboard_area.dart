@@ -1,9 +1,9 @@
-import 'package:calculator/display_area.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'calculation.dart';
+import 'display_controller.dart';
 
 //キーボード部分
 class KeyboardArea extends StatelessWidget {

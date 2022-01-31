@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'display_area.dart';
+import 'display_controller.dart';
 import 'keyboard_area.dart';
 import 'text_data.dart';
 
