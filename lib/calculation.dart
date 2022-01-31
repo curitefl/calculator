@@ -1,19 +1,8 @@
 import 'text_data.dart';
 
 class Calculation {
-  static const List<String> checkOperator = ['+', '-', '×', '÷'];
-  static const List<String> numberKey = [
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9'
-  ];
+  static const String checkOperator = '+-×÷';
+  static const String numberKey = '0123456789';
   static final List<double> _numberList = [];
   static final List<String> _operatorList = [];
   static String _numberBuffer = TextData.empty;
