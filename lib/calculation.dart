@@ -1,39 +1,14 @@
 import 'text_data.dart';
 
 class Calculation {
-  static const String checkOperator = '+-×÷';
-  static const String numberKey = '0123456789';
-  static final List<double> _numberList = [];
-  static final List<String> _operatorList = [];
-  static String _numberBuffer = TextData.empty;
-  static String equalFlag = TextData.empty;
-  static double _result = 0.0;
-
-  // 四則演算子と数字を振り分ける処理
-  static void getKey(String letter) {
-    // 四則演算子の場合
-    if (checkOperator.contains(letter)) {
-      _operatorList.add(letter);
-      _numberList.add(double.parse(_numberBuffer));
-      _numberBuffer = TextData.empty;
-    }
-    // Cキーの場合
-    else if (letter == TextData.clearKey) {
-      _numberList.clear();
-      _operatorList.clear();
-      _numberBuffer = TextData.empty;
-    }
-    // =キーの場合
-    else if (letter == TextData.equalKey) {
-      // if (Calculation.equalFlag == TextData.equalKey) {
-      _numberBuffer = TextData.empty;
-      // }
-    }
-    // 数字の場合
-    else {
-      _numberBuffer += letter;
-    }
-  }
+  static List<double> _operand = [0.0, 0.0];
+  static int _target = 0;
+  static int _digitFlag = 0;
+  static String _operator = TextData.empty;
+  static String _errorCheck = TextData.empty;
+  static double _operandBuffer = 0.0;
+  static String _operatorBuffer = TextData.empty;
+  static bool resultFlag = false;
 
   // 計算処理
   static String execute() {
