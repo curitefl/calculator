@@ -11,37 +11,48 @@ class Calculation {
   static bool resultFlag = false;
 
   // 計算処理
-  static String execute() {
-    _numberList.add(double.parse(_numberBuffer));
-    // equalFlag = TextData.equalKey;
-
-    if (_numberList.isEmpty) {
-      return TextData.zero;
+  static String execute(String expression, int length) {
+    // 文字列の1文字目から順に何が入っているか調べていく
+    for (int i = 0; i < length; i++) {
+      // もし数字だったら
+      if (TextData.checkNumber.contains(expression[i])) {
+        // _operandに格納する
+        _operand[_target] =
+            _operand[_target] * _digitFlag * 10.0 + double.parse(expression[i]);
+        // 桁上がりを有効にする
+        _digitFlag = 1;
+      }
+      // もし四則演算子で
+      else {
+        // operatorに既に四則演算子が格納されていたら、計算をする
+        if (_operator != TextData.empty) {
+          _errorCheck = calculate(_operator);
+          if (_errorCheck == TextData.error) {
+            clearVariable();
+            return TextData.error;
+          }
+        }
+        // 演算子を格納する
+        _operator = expression[i];
+        // 数字の格納先を変える
+        _target = 1;
+        // 桁上がりを無効にする
+        _digitFlag = 0;
+      }
+    }
+    // 結果の画面で、イコールを押したら、直前と同じ被演算子と演算子を使う
+    if (resultFlag == true) {
+      _operand[1] = _operandBuffer;
+      _operator = _operatorBuffer;
+    } else if (TextData.checkOperator
+        .contains(expression[expression.length - 1])) {
+      _operand[1] = _operand[0];
     }
 
-    _result = _numberList[0];
-    for (int i = 0; i < _operatorList.length; i++) {
-      // +キーの場合
-      if (_operatorList[i] == checkOperator[0]) {
-        _result += _numberList[i + 1];
-      }
-      // -キーの場合
-      else if (_operatorList[i] == checkOperator[1]) {
-        _result -= _numberList[i + 1];
-      }
-      // ×キーの場合
-      else if (_operatorList[i] == checkOperator[2]) {
-        _result *= _numberList[i + 1];
-      }
-      // ÷キーの場合
-      else if (_operatorList[i] == checkOperator[3] &&
-          _numberList[i + 1] != 0) {
-        _result /= _numberList[i + 1];
-      }
-      // 四則演算子以外の場合
-      else {
-        return TextData.error;
-      }
+    _errorCheck = calculate(_operator);
+    if (_errorCheck == TextData.error) {
+      clearVariable();
+      return TextData.error;
     }
 
     _numberList.clear();
