@@ -92,4 +92,13 @@ class Calculation {
     }
     return TextData.empty;
   }
+
+  static void clearVariable() {
+    _operand = [0.0, 0.0];
+    _operator = TextData.empty;
+    _target = 0;
+    _digitFlag = 0;
+    resultFlag = true;
+    _errorCheck = TextData.empty;
+  }
 }
