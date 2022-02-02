@@ -6,6 +6,19 @@ import 'calculation.dart';
 class DisplayController extends GetxController {
   final Rx<String> displayExpression = TextData.empty.obs;
 
+  // 入力を受け付けるか判定する処理
+  void inputPermission(String letter) {
+    // もし画面が空で、数字以外が入力されたら受け付けない
+    if (displayExpression.value == TextData.empty &&
+        !TextData.checkNumber.contains(letter)) {
+      return;
+    }
+    // 画面が空ではない、もしくは数字が入力されたら受け付ける
+    else {
+      updateDisplay(letter);
+    }
+  }
+
   // ディスプレイの再描画処理
   void updateDisplay(String letter) {
     // 計算結果が表示されている状態で、数字が入力されたら、表示をリセットする

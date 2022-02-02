@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'calculation.dart';
 import 'display_controller.dart';
 
 //キーボード部分
@@ -50,8 +49,7 @@ class TouchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        _displayController.updateDisplay(_keyLabel);
-        Calculation.getKey(_keyLabel);
+        _displayController.inputPermission(_keyLabel);
       },
       child: Center(
         child: Text(
