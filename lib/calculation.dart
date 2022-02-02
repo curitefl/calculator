@@ -73,7 +73,23 @@ class Calculation {
     _operatorList.clear();
     _numberBuffer = TextData.empty;
 
-    List<String> resultStr = _result.toString().split(TextData.decimalPoint);
-    return resultStr[1] == TextData.zero ? resultStr[0] : _result.toString();
+    List<String> resultStr = expression.split(TextData.decimalPoint);
+    return resultStr[1] == TextData.zero ? resultStr[0] : expression.toString();
+  }
+
+  // 加減乗除の処理
+  static String calculate(String operator) {
+    if (operator == TextData.plus) {
+      _operand[0] += _operand[1];
+    } else if (operator == TextData.minus) {
+      _operand[0] -= _operand[1];
+    } else if (operator == TextData.multiply) {
+      _operand[0] *= _operand[1];
+    } else if (operator == TextData.divide && _operand[1] != 0) {
+      _operand[0] /= _operand[1];
+    } else {
+      return TextData.error;
+    }
+    return TextData.empty;
   }
 }
