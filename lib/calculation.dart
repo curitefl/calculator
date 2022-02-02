@@ -55,10 +55,13 @@ class Calculation {
       return TextData.error;
     }
 
-    _numberList.clear();
-    _operatorList.clear();
-    _numberBuffer = TextData.empty;
+    expression = _operand[0].toString();
 
+    // 次回、演算子で終わる計算だった場合に使う、数字と演算子を格納しておく
+    _operandBuffer = _operand[1];
+    _operatorBuffer = _operator;
+
+    clearVariable();
     List<String> resultStr = expression.split(TextData.decimalPoint);
     return resultStr[1] == TextData.zero ? resultStr[0] : expression.toString();
   }
