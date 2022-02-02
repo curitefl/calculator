@@ -51,7 +51,14 @@ class DisplayController extends GetxController {
     // 数字、四則演算子の場合
     else {
       displayExpression.value += letter;
-      Calculation.equalFlag = TextData.empty;
     }
+  }
+
+  // 四則演算子を置き換える処理
+  void replaceOperator(String letter) {
+    String _displayExpressionBuffer = displayExpression.value
+        .substring(0, displayExpression.value.length - 1);
+    _displayExpressionBuffer += letter;
+    displayExpression.value = _displayExpressionBuffer;
   }
 }
