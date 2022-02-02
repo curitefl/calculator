@@ -9,9 +9,9 @@ class DisplayController extends GetxController {
 
   // 入力を受け付けるか判定する処理
   void inputPermission(String letter) {
-    // もし画面が空で、数字以外が入力されたら受け付けない
+    // もし画面が空で、1~9以外が入力されたら受け付けない
     if (displayExpression.value == TextData.empty &&
-        !TextData.checkNumber.contains(letter)) {
+        !TextData.checkNumber.substring(1).contains(letter)) {
       return;
     }
     // 画面が空ではない、もしくは数字が入力されたら受け付ける
