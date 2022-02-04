@@ -1,17 +1,18 @@
 import 'text_data.dart';
 
 class Calculation {
-  static List<double> _operand = [0.0, 0.0];
-  static int _target = 0;
-  static int _digitFlag = 0;
-  static String _operator = TextData.empty;
-  static String _errorCheck = TextData.empty;
-  static double _operandBuffer = 0.0;
-  static String _operatorBuffer = TextData.empty;
-  static bool resultFlag = false;
+  static Calculation instance = Calculation();
+  List<double> _operand = [0.0, 0.0];
+  int _target = 0;
+  int _digitFlag = 0;
+  String _operator = TextData.empty;
+  String _errorCheck = TextData.empty;
+  double _operandBuffer = 0.0;
+  String _operatorBuffer = TextData.empty;
+  bool resultFlag = false;
 
   // 計算処理
-  static String execute(String expression, int length) {
+  String execute(String expression, int length) {
     // expressionが1文字以上あるかチェック、なかったらエラーを返す
     if (expression.isEmpty) {
       return TextData.error;
@@ -75,7 +76,7 @@ class Calculation {
   }
 
   // 加減乗除の処理
-  static String calculate(String operator) {
+  String calculate(String operator) {
     switch (operator) {
       case TextData.plus:
         _operand[0] += _operand[1];
@@ -96,7 +97,7 @@ class Calculation {
     return TextData.empty;
   }
 
-  static void clearVariable() {
+  void clearVariable() {
     _operand = [0.0, 0.0];
     _operator = TextData.empty;
     _target = 0;

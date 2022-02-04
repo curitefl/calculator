@@ -25,17 +25,17 @@ class DisplayController extends GetxController {
     // Cキーの場合
     if (letter == TextData.clearKey) {
       displayExpression.value = TextData.empty;
-      Calculation.resultFlag = false;
+      Calculation.instance.resultFlag = false;
     }
     // =キーの場合
     else if (letter == TextData.equalKey) {
-      displayExpression.value = Calculation.execute(
-          displayExpression.value, displayExpression.value.length);
+      displayExpression.value = Calculation.instance
+          .execute(displayExpression.value, displayExpression.value.length);
     }
     // エラーの場合
     else if (letter == TextData.error) {
       displayExpression.value = TextData.error;
-      Calculation.resultFlag = false;
+      Calculation.instance.resultFlag = false;
     }
     // 数字、四則演算子の場合
     else {
@@ -50,15 +50,15 @@ class DisplayController extends GetxController {
         }
       }
       // 結果画面で
-      if (Calculation.resultFlag == true) {
+      if (Calculation.instance.resultFlag == true) {
         // 数字が入力されたら、画面とFlagを空にする
         if (TextData.allNumbers.contains(letter)) {
           displayExpression.value = TextData.empty;
-          Calculation.resultFlag = false;
+          Calculation.instance.resultFlag = false;
         }
         // 四則演算子が入力されたら、Flagを空にする
         else if (TextData.allOperators.contains(letter)) {
-          Calculation.resultFlag = false;
+          Calculation.instance.resultFlag = false;
         }
       }
       displayExpression.value += letter;
