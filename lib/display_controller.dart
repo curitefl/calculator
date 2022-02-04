@@ -14,10 +14,7 @@ class DisplayController extends GetxController {
         !TextData.allNumbers.substring(1).contains(letter)) {
       return;
     }
-    // 画面が空ではない、もしくは数字が入力されたら受け付ける
-    else {
-      updateDisplay(letter);
-    }
+    updateDisplay(letter);
   }
 
   // ディスプレイの再描画処理
