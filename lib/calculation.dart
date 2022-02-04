@@ -76,16 +76,22 @@ class Calculation {
 
   // 加減乗除の処理
   static String calculate(String operator) {
-    if (operator == TextData.plus) {
-      _operand[0] += _operand[1];
-    } else if (operator == TextData.minus) {
-      _operand[0] -= _operand[1];
-    } else if (operator == TextData.multiply) {
-      _operand[0] *= _operand[1];
-    } else if (operator == TextData.divide && _operand[1] != 0) {
-      _operand[0] /= _operand[1];
-    } else {
-      return TextData.error;
+    switch (operator) {
+      case TextData.plus:
+        _operand[0] += _operand[1];
+        break;
+      case TextData.minus:
+        _operand[0] -= _operand[1];
+        break;
+      case TextData.multiply:
+        _operand[0] *= _operand[1];
+        break;
+      case TextData.divide:
+        if (_operand[1] == 0) {
+          return TextData.error;
+        }
+        _operand[0] /= _operand[1];
+        break;
     }
     return TextData.empty;
   }
