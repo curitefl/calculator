@@ -41,9 +41,9 @@ class DisplayController extends GetxController {
     else {
       // 画面が空ではなく
       if (displayExpression.value != TextData.empty) {
-        int _last = displayExpression.value.length - 1;
+        final int last = displayExpression.value.length - 1;
         // 画面末尾が四則演算子かつ、四則演算子が入力されたら、入力された演算子に置き換える
-        if (TextData.allOperators.contains(displayExpression.value[_last]) &&
+        if (TextData.allOperators.contains(displayExpression.value[last]) &&
             TextData.allOperators.contains(letter)) {
           replaceOperator(letter);
           return;
