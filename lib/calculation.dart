@@ -19,7 +19,7 @@ class Calculation {
     // 文字列の1文字目から順に何が入っているか調べていく
     for (int i = 0; i < length; i++) {
       // もし数字だったら
-      if (TextData.checkNumber.contains(expression[i])) {
+      if (TextData.allNumbers.contains(expression[i])) {
         // _targetが_operand配列の範囲外を参照していないかチェック
         assert(_target < _operand.length && _target >= 0,
             '_targetの値が $_target です。_targetは0~1の範囲にしてください。');
@@ -52,7 +52,7 @@ class Calculation {
     if (resultFlag == true) {
       _operand[1] = _operandBuffer;
       _operator = _operatorBuffer;
-    } else if (TextData.checkOperator
+    } else if (TextData.allOperators
         .contains(expression[expression.length - 1])) {
       _operand[1] = _operand[0];
     }

@@ -12,6 +12,6 @@ class TextData {
   static const String minus = '-';
   static const String multiply = '×';
   static const String divide = '÷';
-  static const String checkNumber = '0123456789';
-  static const String checkOperator = '+-×÷';
+  static const String allNumbers = '0123456789';
+  static const String allOperators = '+-×÷';
 }

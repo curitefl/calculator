@@ -11,7 +11,7 @@ class DisplayController extends GetxController {
   void inputPermission(String letter) {
     // もし画面が空で、1~9以外が入力されたら受け付けない
     if (displayExpression.value == TextData.empty &&
-        !TextData.checkNumber.substring(1).contains(letter)) {
+        !TextData.allNumbers.substring(1).contains(letter)) {
       return;
     }
     // 画面が空ではない、もしくは数字が入力されたら受け付ける
@@ -43,8 +43,8 @@ class DisplayController extends GetxController {
       if (displayExpression.value != TextData.empty) {
         int _last = displayExpression.value.length - 1;
         // 画面末尾が四則演算子かつ、四則演算子が入力されたら、入力された演算子に置き換える
-        if (TextData.checkOperator.contains(displayExpression.value[_last]) &&
-            TextData.checkOperator.contains(letter)) {
+        if (TextData.allOperators.contains(displayExpression.value[_last]) &&
+            TextData.allOperators.contains(letter)) {
           replaceOperator(letter);
           return;
         }
@@ -52,12 +52,12 @@ class DisplayController extends GetxController {
       // 結果画面で
       if (Calculation.resultFlag == true) {
         // 数字が入力されたら、画面とFlagを空にする
-        if (TextData.checkNumber.contains(letter)) {
+        if (TextData.allNumbers.contains(letter)) {
           displayExpression.value = TextData.empty;
           Calculation.resultFlag = false;
         }
         // 四則演算子が入力されたら、Flagを空にする
-        else if (TextData.checkOperator.contains(letter)) {
+        else if (TextData.allOperators.contains(letter)) {
           Calculation.resultFlag = false;
         }
       }
