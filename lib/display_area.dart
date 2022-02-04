@@ -19,7 +19,7 @@ class DisplayArea extends StatelessWidget {
       child: Container(
           alignment: Alignment.centerRight,
           child: Obx(
-                () => Text(
+            () => Text(
               _displayController.displayExpression.value,
               style: TextStyle(
                 fontSize: 64.0.sp,
