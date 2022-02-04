@@ -20,8 +20,9 @@ class Calculation {
     for (int i = 0; i < length; i++) {
       // もし数字だったら
       if (TextData.checkNumber.contains(expression[i])) {
+        // _targetが_operand配列の範囲外を参照していないかチェック
         assert(_target < _operand.length && _target >= 0,
-            '_targetの値は $_target です。_targetは0~1の範囲にしてください。');
+            '_targetの値が $_target です。_targetは0~1の範囲にしてください。');
         // _operandに格納する
         _operand[_target] =
             _operand[_target] * _digitFlag * 10.0 + double.parse(expression[i]);
