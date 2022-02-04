@@ -29,8 +29,8 @@ class DisplayController extends GetxController {
     }
     // =キーの場合
     else if (letter == TextData.equalKey) {
-      displayExpression.value = Calculation.instance
-          .execute(displayExpression.value, displayExpression.value.length);
+      displayExpression.value =
+          Calculation.instance.execute(displayExpression.value);
     }
     // エラーの場合
     else if (letter == TextData.error) {

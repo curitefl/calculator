@@ -12,13 +12,13 @@ class Calculation {
   bool resultFlag = false;
 
   // 計算処理
-  String execute(String expression, int length) {
+  String execute(String expression) {
     // expressionが1文字以上あるかチェック、なかったらエラーを返す
     if (expression.isEmpty) {
       return TextData.error;
     }
     // 文字列の1文字目から順に何が入っているか調べていく
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < expression.length; i++) {
       // もし数字だったら
       if (TextData.allNumbers.contains(expression[i])) {
         // _targetが_operand配列の範囲外を参照していないかチェック
