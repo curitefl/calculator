@@ -2,18 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class DisplayController extends GetxController {
-  final Rx<String> displayExpression = '1+1'.obs;
-
-  // ディスプレイの再描画処理
-  void updateDisplay(String letter) {
-    if (letter == '=' || letter == 'C') {
-      displayExpression.value = '';
-    } else {
-      displayExpression.value += letter;
-    }
-  }
-}
+import 'display_controller.dart';
 
 //ディスプレイ部分
 class DisplayArea extends StatelessWidget {
